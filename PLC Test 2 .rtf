@@ -1,0 +1,26 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww16640\viewh10360\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+<program> -> Begin <statement_list> end\
+<statement_list> -> <stmt>;\
+<stmt> -> <assign> | <declaration> | <expression> | <loop> |<if>\
+<declaration> -> <identifier> <memory_value> \
+<assignment> -> <identifier> = <memory_value>: <expression>\
+<memory_value> -> 1 | 2 | 4 | 8\
+<expression> -> <expression>+<term> | <expression>-<term>| <term>\
+<Comparisons> -> < |<= | > | >= | == | != <Comparisons> \
+<condition> -> <expression><Comparisons><expression>\
+<term> -> <term>*<factor> | <term>/<factor> | <term>%<factor> \
+<factor> -> <identifier>|<number> | (<expression>)\
+<identifier>-> <letters><identifiers> | <letters>|_\
+<letters> -> [a-z][A-Z] <letters>\
+<digits> ->0|1|2|3|4|5|6|7|8|9 <digits>\
+<number> -> <digit>|<digit> <number>\
+<memory_value> -> 1 | 2 | 4 | 8 <memory_value> \
+}
