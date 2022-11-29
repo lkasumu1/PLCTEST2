@@ -1,9 +1,9 @@
 <program> -> Begin <statement_list> 
 <statement_list> -> <stmt>;\
-<stmt> -> <assign> | <declaration> | <expression> | <loop> |<if>\
+<stmt> -> <assign> | <declaration> | <expression> | <loop> |<tk_if>\
 <declaration> -> <identifier> <memory_value> \
 <assignment> -> <identifier> = <memory_value>: <expression>\
-<memory_value> -> 1 | 2 | 4 | 8\
+<memory_value> -> 1 | 2 | 4 | 8
 <expression> -> <expression>+<term> | <expression>-<term>| <term>\
 <Comparisons> -> < |<= | > | >= | == | != <Comparisons> \
 <condition> -> <expression><Comparisons><expression>\
