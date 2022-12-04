@@ -1,28 +1,57 @@
 # PLCTEST2
 
-<program> -> Begin <statement_list> 
-<statement_list> -> <stmt>;\
-<stmt> -> <assign> | <declaration> | <expression> | <loop> |<if>\
-<declaration> -> <identifier> <memory_value> \
-<assignment> -> <identifier> = <memory_value>: <expression>\
-<memory_value> -> 1 | 2 | 4 | 8\
-<expression> -> <expression>+<term> | <expression>-<term>| <term>\
-<Comparisons> -> < |<= | > | >= | == | != <Comparisons> \
-<condition> -> <expression><Comparisons><expression>\
-<term> -> <term>*<factor> | <term>/<factor> | <term>%<factor> \
-<factor> -> <identifier>|<number> | (<expression>)\
-<identifier>-> <letters><identifiers> | <letters>|_\
-<letters> -> [a-z][A-Z] <letters>\
-<digits> ->0|1|2|3|4|5|6|7|8|9 <digits>\
-<number> -> <digit>|<digit> <number>\
-<memory_value> -> 1 | 2 | 4 | 8 <memory_value> \
+Keyword, loop = circle 
+Keyword, switch statement = ss
+Keyword, else = el
+Keyword, start = Begin
+Keyword, end = ed
+Keyword, byte1 = mem1
+Keyword, byte2 = mem2
+Keyword, byte4 = mem4
+Keyword, byte8 = mem8
+Keyword, true = tru
+Keyword, false = fal
+Keyword, and = &&
+Keyword, or = ||
 
-<bool_expr> --> <bor> { `OR` <bor> }
-<bor> --> <beq> { `AND` <beq> }
+Symbols: 
+Symbol, leftp = (
+Symbol, rightp = )
+Symbol, eos = ;
+Symbol, add = +
+Symbol, sub = -
+Symbol, mult= *
+Symbol, div = \
+Symbol, mod = %
+Symbol, ass = =
+Symbol, nte = !=
+Symbol, eq = =
+Symbol, lst= <
+Symbol, lste = <=
+Symbol, grt = >
+Symbol, grte = >=
+Lit: [0-9]+
+Idf = ([a-zA-Z]|_)
+
+
+Ss —> ‘Begin’ <stmt>
+<stmt> -> <loop> | <switch> | <var_op> | <block> 
+<block> —> ‘{‘ <stmt> ‘;’ ‘}’
+<switch> —> ‘[ss]’ <boolexpr> <block> [‘[el]’<block>]
+<loop> —> ‘[circle]’ <boolexpr><block>
+<var_op> —>’idf’(declare|<ass>)
+<declare> —> ‘[mem1]’ | [mem2]’ | [mem4]’ | [mem8]’
+<ass> —> ‘=‘ <expr> 
+<factor> —> ‘idf’| ‘lit’ | ’(‘ <expr> ‘)’
+
+<boolexpr> --> <bor> { `OR` <bor> }
+<bor> --> <beq> { `OR` <beq> }
 <beq> --> <brel> { (`!=`|`==`) <brel> }
 <brel> --> <expr> { (`<=`|`>=` | `<` | `>`) <expr> }
-<expr> --> <term> { (`+`|`-`) <term> }
-<term> --> <not> { (`*`|`\`|`%`) <bnot> }
+<expr> —> <term> {(‘*’ | ‘/’ | ‘%’)<term>}
+<term> --> <not> { (`+`|`-`|``) <factor> }
 <not> -> [!]<bfactor>
 <factor> --> `id` | `int_lit` | `float_lit` | `bool_lit` | `(` <bexpr> `)`
-}
+
+3. This is not a pairwise disjoint and there is no left hand recursion since I have <block> so it gets rid of recursion 
+4. The same rule can’t be made twice 
